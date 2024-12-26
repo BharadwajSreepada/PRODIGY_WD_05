@@ -1,0 +1,143 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background: linear-gradient(135deg, #b0c4de, #778899);
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body::before,
+body::after {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 60px;
+    background: white;
+    border-radius: 50%;
+    filter: blur(25px);
+    animation: floatClouds 10s linear infinite;
+    z-index: 1;
+}
+
+body::before {
+    top: 10%;
+    left: 20%;
+    animation-delay: 0s;
+}
+
+body::after {
+    top: 50%;
+    left: 60%;
+    animation-delay: 5s;
+}
+
+.weather-container {
+    position: relative;
+    z-index: 2;
+    max-width: 500px;
+    width: 90%;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+}
+
+h1 {
+    font-size: 2rem;
+    color: #4682b4;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+input {
+    padding: 15px;
+    width: 100%;
+    margin: 15px 0;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+input:focus {
+    border-color: #4682b4;
+    outline: none;
+}
+
+button {
+    padding: 12px 25px;
+    background: linear-gradient(135deg, #5f9ea0, #4682b4);
+    color: white;
+    font-size: 1rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #4682b4, #5f9ea0);
+    transform: translateY(-2px);
+}
+
+.weather-info {
+    margin-top: 20px;
+    background: rgba(240, 248, 255, 0.9);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.weather-info p {
+    margin: 10px 0;
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+.weather-info span {
+    font-weight: bold;
+    color: #4682b4;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    input, button {
+        font-size: 0.9rem;
+    }
+
+    .weather-info p {
+        font-size: 1rem;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes floatClouds {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(200px);
+    }
+}
